@@ -28,4 +28,12 @@
 -   **Flexibility:** Can manage both Unix-like systems and Windows systems from a single control machine.
 
 **Who is using IaC and Ansible:**
-Many organisations across various industries use IaC and Ansible for automating their infrastructure management, including tech giants, startups, and government agencies. Companies like NASA, Twitter, and many others have publicly shared their use of Ansible for automating deployment, configuration management, and ensuring consistent environments across development, testing, and production.
+Many organizations across various industries have adopted Infrastructure as Code practices and tools like Ansible.
+
+**Netflix**: Netflix extensively uses IaC to manage its large-scale infrastructure on AWS. They have developed their own IaC tool called Spinnaker.
+**Airbnb**: Airbnb uses Terraform to manage its infrastructure across multiple cloud providers and regions.
+**Slack**: Slack utilizes Terraform to provision and manage its AWS infrastructure, ensuring consistency and reliability.
+**Uber**: Uber employs Ansible for configuration management and infrastructure provisioning across its global infrastructure.
+**Red Hat**: Red Hat, the company behind Ansible, uses Ansible extensively for managing its own infrastructure and provides enterprise support for Ansible to its customers.
+
+Many other companies, from startups to large companies, have adopted IaC practices and tools to streamline their infrastructure management and deployment processes.
