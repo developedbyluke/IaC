@@ -1,4 +1,15 @@
-# Infrastructure as Code (IaC)
+-   [Infrastructure as Code (IaC)](#infrastructure-as-code-iac)
+    -   [What is it](#what-is-it)
+    -   [Why use it](#why-use-it)
+    -   [When to use it](#when-to-use-it)
+    -   [Where to use it](#where-to-use-it)
+    -   [Tools Available](#tools-available)
+-   [Ansible](#ansible)
+    -   [What is Ansible:](#what-is-ansible)
+    -   [Benefits of using Ansible:](#benefits-of-using-ansible)
+    -   [Who is using IaC and Ansible](#who-is-using-iac-and-ansible)
+
+### Infrastructure as Code (IaC)
 
 #### What is it
 
