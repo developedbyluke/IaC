@@ -8,6 +8,9 @@
     -   [What is Ansible:](#what-is-ansible)
     -   [Benefits of using Ansible:](#benefits-of-using-ansible)
     -   [Who is using IaC and Ansible](#who-is-using-iac-and-ansible)
+-   [Setting up Ansible](#setting-up-ansible)
+    -   [Prerequisites](#prerequisites)
+    -   [Steps](#steps)
 
 ### Infrastructure as Code (IaC)
 
@@ -63,3 +66,60 @@ Many organizations across various industries have adopted Infrastructure as Code
 **Red Hat**: Red Hat, the company behind Ansible, uses Ansible extensively for managing its own infrastructure and provides enterprise support for Ansible to its customers.
 
 Many other companies, from startups to large companies, have adopted IaC practices and tools to streamline their infrastructure management and deployment processes.
+
+### Setting up Ansible
+
+#### Prerequisites
+
+-   [x] Two EC2 instances (one as Ansible controller and one as agent node)
+-   [x] Security group with port 22 open for SSH on both instances
+
+#### Steps
+
+1. **Install Ansible on the controller node:**
+
+```bash
+sudo apt update
+sudo apt install ansible
+```
+
+2. **Configure the Ansible controller:**
+
+Edit the Ansible configuration file `/etc/ansible/ansible.cfg` to set the inventory file location and other settings.
+
+```bash
+sudo nano /etc/ansible/ansible.cfg
+```
+
+Add the following lines to the configuration file:
+
+```yaml
+[defaults]
+remote_user = ubuntu
+private_key_file = /path/to/your/private-key.pem
+```
+
+3. **Edit inventory file:**
+
+Edit the inventory file `/etc/ansible/hosts` to define the hosts that Ansible will have control over. These are the IP addresses of the agent nodes.
+
+```bash
+sudo nano /etc/ansible/hosts
+```
+
+Add the IP addresses of the agent nodes to the inventory file:
+
+```yaml
+[agents]
+ec2_instance ansible_host=agent_ip_address
+```
+
+4. **Test the Ansible setup:**
+
+Run the `ping` command to check if Ansible can communicate with the agent node.
+
+```bash
+sudo ansible all -m ping
+```
+
+There should be a successful `pong` response from the agent node.
