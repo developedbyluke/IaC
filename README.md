@@ -28,4 +28,4 @@
 -   **Flexibility:** Can manage both Unix-like systems and Windows systems from a single control machine.
 
 **Who is using IaC and Ansible:**
-Many organizations across various industries use IaC and Ansible for automating their infrastructure management, including tech giants, startups, and government agencies. Companies like NASA, Twitter, and many others have publicly shared their use of Ansible for automating deployment, configuration management, and ensuring consistent environments across development, testing, and production.
+Many organisations across various industries use IaC and Ansible for automating their infrastructure management, including tech giants, startups, and government agencies. Companies like NASA, Twitter, and many others have publicly shared their use of Ansible for automating deployment, configuration management, and ensuring consistent environments across development, testing, and production.
