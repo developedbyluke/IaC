@@ -11,6 +11,9 @@
 -   [Setting up Ansible](#setting-up-ansible)
     -   [Prerequisites](#prerequisites)
     -   [Steps](#steps)
+-   [Deploying an App on Agent Node](#deploying-an-app-on-agent-node)
+    -   [Using shell module](#using-shell-module)
+    -   [](#)
 
 ### Infrastructure as Code (IaC)
 
@@ -123,3 +126,34 @@ sudo ansible all -m ping
 ```
 
 There should be a successful `pong` response from the agent node.
+
+### Deploying an App on Agent Node
+
+#### Using shell module
+
+https://stackoverflow.com/questions/53034395/running-sed-command-from-ansible
+
+```yaml
+# shell commands in ansible
+- name: Echo
+  hosts: agents
+  tasks:
+    - name: Run echo command
+      shell: echo "Shell command ran"
+```
+
+Muli-line shell commands:
+
+```yaml
+- name: Run multi-line shell commands
+  hosts: agents
+  tasks:
+    - name: Run multi-line shell commands
+      shell: |
+        echo "This is a multi-line shell command"
+        echo "It is running on the agent node"
+```
+
+With the shell module, I'm able to run shell commands that I previously included in shell scripts.
+
+####
