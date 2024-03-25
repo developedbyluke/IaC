@@ -76,7 +76,7 @@ Many other companies, from startups to large companies, have adopted IaC practic
 
 #### Steps
 
-1. **Install Ansible on the controller node:**
+1. **Install Ansible on the controller instance:**
 
 ```bash
 sudo apt update
@@ -91,15 +91,15 @@ Edit the Ansible configuration file `/etc/ansible/ansible.cfg` to set the invent
 sudo nano /etc/ansible/ansible.cfg
 ```
 
-Add the following lines to the configuration file:
+Add to the configuration file:
 
 ```yaml
 [defaults]
 remote_user = ubuntu
-private_key_file = /path/to/your/private-key.pem
+private_key_file = /path/to/private-key.pem
 ```
 
-3. **Edit inventory file:**
+1. **Edit inventory file:**
 
 Edit the inventory file `/etc/ansible/hosts` to define the hosts that Ansible will have control over. These are the IP addresses of the agent nodes.
 
