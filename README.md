@@ -11,9 +11,11 @@
 -   [Setting up Ansible](#setting-up-ansible)
     -   [Prerequisites](#prerequisites)
     -   [Steps](#steps)
+-   [Useful Ansible Links](#useful-ansible-links)
 -   [Deploying an App on Agent Node](#deploying-an-app-on-agent-node)
     -   [Using shell module](#using-shell-module)
-    -   [](#)
+    -   [Install and configure Nginx](#install-and-configure-nginx)
+    -   [Deploy app](#deploy-app)
 
 ### Infrastructure as Code (IaC)
 
@@ -127,6 +129,13 @@ sudo ansible all -m ping
 
 There should be a successful `pong` response from the agent node.
 
+### Useful Ansible Links
+
+-   [Digital Ocean - How To Write Ansible Playbooks](https://www.digitalocean.com/community/tutorial-series/how-to-write-ansible-playbooks#how-to-install-and-manage-system-packages-in-ansible-playbooks)
+-   [Stack Overflow - Running sed command from Ansible](https://stackoverflow.com/questions/53034395/running-sed-command-from-ansible)
+-   [Stack Overflow - Multi-line shell commands in Ansible](https://stackoverflow.com/questions/53034395/running-sed-command-from-ansible)
+-   [Ansible Documentation - Service Module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html)
+
 ### Deploying an App on Agent Node
 
 #### Using shell module
@@ -142,7 +151,7 @@ https://stackoverflow.com/questions/53034395/running-sed-command-from-ansible
       shell: echo "Shell command ran"
 ```
 
-Muli-line shell commands:
+Multi-line shell commands:
 
 ```yaml
 - name: Run multi-line shell commands
@@ -156,4 +165,34 @@ Muli-line shell commands:
 
 With the shell module, I'm able to run shell commands that I previously included in shell scripts.
 
-####
+#### Install and configure Nginx
+
+[install-nginx.yaml](scripts/install_nginx.yaml)
+
+```yaml
+---
+- name: Install and configure nginx
+  hosts: agents
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Configure reverse proxy
+      shell: |
+        sed -i "s|try_files .*;|proxy_pass http://127.0.0.1:3000;|g" /etc/nginx/sites-available/default
+        systemctl restart nginx
+        systemctl enable nginx
+```
+
+#### Deploy app
+
+[deploy-app.yaml](scripts/deploy_app.yaml)
+
+```
+
+```
